@@ -71,7 +71,7 @@ REST_FRAMEWORK = {
     ),
 }
 
-#AUTH_USER_MODEL = 'libreriauserapp.User'
+AUTH_USER_MODEL = 'libreriauserapp.User'
 
 ROOT_URLCONF = 'libreriaproject.urls'
 
