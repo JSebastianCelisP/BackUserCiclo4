@@ -19,9 +19,14 @@ from libreriauserapp import views
 from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('login/',        TokenObtainPairView.as_view()),
-    path('refresh/',      TokenRefreshView.as_view()),
-    path('user/',         views.UserCreateView.as_view()),
-    path('verifytokenView/',    views.verifyTokenView.as_view()),
+    path('admin/',                 admin.site.urls),
+    path('login/',                 TokenObtainPairView.as_view()),
+    path('refresh/',               TokenRefreshView.as_view()),
+    path('signup/',                views.UserCreateView.as_view()),  
+    path('user/<int:pk>/',         views.UserDetailView.as_view()),
+    path('users/',                 views.UsersView.as_view()),
+    path('user/update/<int:pk>/',  views.UserUpdateView.as_view()),
+    path('user/delete/<int:pk>/',  views.UserDeleteView.as_view()),
+    path('verifytokenView/',       views.VerifyTokenView.as_view()),
+
 ]

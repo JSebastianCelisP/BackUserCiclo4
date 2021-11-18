@@ -6,6 +6,11 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['username', 'password', 'nombre', 'email']
 
+class UserSerializerUpdate(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['nombre', 'email']
+
     def to_representation(self, obj):
         user    = User.objects.get(id=obj.id)
         return {
