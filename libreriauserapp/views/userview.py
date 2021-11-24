@@ -46,7 +46,6 @@ class UserUpdateView(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, generic
     def put(self, request, *args, **kwargs):
         return self.update(request, *args, **kwargs)
 
-
 class UserDeleteView(generics.DestroyAPIView):
     serializer_class   = UserSerializer
     queryset           = User.objects.all()
