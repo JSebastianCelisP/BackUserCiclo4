@@ -33,9 +33,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     password = models.CharField('Password', max_length = 256)
     nombre   = models.CharField('Nombre',   max_length = 30)
     email    = models.EmailField('Email',   max_length = 100, unique=True)
-    saldo    = models.IntegerField('Saldo', default    = 100000)
+    rol      = models.CharField('Rol',      max_length = 100, default = 'User') 
 
-    
     def save(self, **kwargs):
         some_salt = 'mMUj0DrIK6vgtdIYepkIxN'
         self.password = make_password(self.password, some_salt)
