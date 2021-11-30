@@ -13,5 +13,5 @@ class UserSerializer(serializers.ModelSerializer):
             'username': user.username,
             'nombre'  : user.nombre,
             'email'   : user.email,
-            'saldo'   : user.saldo
+            'rol'     : user.rol
         }
