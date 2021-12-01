@@ -36,6 +36,13 @@ class UserDetailView(generics.RetrieveAPIView):
     def get(self, request, *args, **kwargs):
         return super().get(request, *args, **kwargs)
 
+class UserDetailByUsernameView(generics.ListAPIView):
+    serializer_class   = UserSerializer
+  
+    def get_queryset(self):       
+        queryset = User.objects.filter(username=self.kwargs['username'])          
+        return queryset
+
 class UserUpdateView(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, generics.GenericAPIView):
     serializer_class   = UserSerializer
     queryset           = User.objects.all()
